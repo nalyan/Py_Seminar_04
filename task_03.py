@@ -1,15 +1,17 @@
 # Задайте последовательность чисел. Напишите программу, которая выведет список неповторяющихся элементов исходной последовательности.
 #
-list = [2, 5, 0.4, 2, 0.94, 5, 0, 0.94, -0.94, -3]
-print(list)
+list = [2, 5, 4, 2, 5, 0, 5, -3]
 i = 0
+rep = []
 while i != len(list):
-    k = 0
     for j in range(i + 1, len(list)):
         if list[i] == list[j]:
-            list.pop(j)
-            list.pop(i)
-            k = -1
+            rep.extend([list[i], list[j]])
             break
-    i += 1 + k
+    i += 1
+print(list)
+
+for i in rep:
+    if any([elem in list for elem in rep]):
+        list.remove(i)
 print(list)
